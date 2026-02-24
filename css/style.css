@@ -401,20 +401,19 @@ img {
   text-align: center;
 }
 
-.hero__bg {
+.hero__video {
   position: absolute;
   inset: 0;
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 0;
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13,26,13,0.5) 0%, var(--color-overlay) 100%);
+  background: linear-gradient(180deg, rgba(13,26,13,0.6) 0%, rgba(13,26,13,0.85) 100%);
   z-index: 1;
 }
 
@@ -432,12 +431,28 @@ img {
   margin-bottom: 16px;
 }
 
+.hero__title-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
 .hero__title {
   font-family: var(--font-head);
   font-size: clamp(2.8rem, 8vw, 5rem);
   font-weight: 600;
   line-height: 1.15;
-  margin-bottom: 20px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.hero__title-img {
+  flex-shrink: 0;
+  max-width: 100px;
+  height: auto;
 }
 
 .hero__subtitle {
@@ -469,6 +484,65 @@ img {
   border-radius: 0 0 12px 12px;
 }
 
+/* Hero mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+  .hero__content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero__title-wrap {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .hero__title {
+    white-space: normal;
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    text-align: center;
+  }
+
+  .hero__title-img {
+    max-width: 72px;
+  }
+
+  .hero__label {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .hero__cta {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__title-img {
+    max-width: 56px;
+  }
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -496,47 +570,54 @@ img {
 }
 
 /* ===== About ===== */
-.about__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
+.about .section__inner {
+  max-width: 900px;
 }
 
-.about__card {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius);
-  padding: 32px;
-  transition: transform var(--transition), box-shadow var(--transition);
+.about__intro {
+  margin-top: 32px;
 }
 
-.about__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-}
-
-.about__number {
-  display: block;
-  font-family: var(--font-head);
-  font-size: 2rem;
-  color: var(--color-accent);
-  margin-bottom: 12px;
-  opacity: 0.9;
-}
-
-.about__card h3 {
-  font-family: var(--font-head);
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.about__card p {
-  font-size: 0.95rem;
+.about__text {
+  font-size: 1.1rem;
+  line-height: 1.8;
   font-weight: 300;
-  opacity: 0.9;
+  opacity: 0.95;
+}
+
+.about__text .text-reveal {
+  display: inline;
+}
+
+.about__text .text-reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.about__text .text-reveal.text-reveal-visible .text-reveal-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about__author-link {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  text-decoration: none;
+  padding: 2px 8px;
+  margin: 0 2px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.about__author-link:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  transform: translateY(-1px);
 }
 
 /* ===== Reveal / Fade-in ===== */
@@ -1636,7 +1717,7 @@ img {
     background-attachment: scroll;
   }
 
-  .hero__bg {
+  .hero__video {
     animation: none;
   }
 }

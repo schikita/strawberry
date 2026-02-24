@@ -175,15 +175,9 @@
       <nav class="nav container">
         <a href="#hero" class="nav__logo">Клубника.by</a>
         <ul class="nav__menu" id="navMenu">
-          <li><a href="#hero" class="nav__link">Главная</a></li>
-          <li><a href="#about" class="nav__link">О теплицах</a></li>
-          <li><a href="#gallery" class="nav__link">Галерея</a></li>
-          <li><a href="#strip" class="nav__link">Лента</a></li>
-          <li><a href="#process" class="nav__link">Процесс</a></li>
-          <li><a href="#video" class="nav__link">Видео</a></li>
-          <li><a href="#interview" class="nav__link">Интервью</a></li>
-          <li><a href="#game" class="nav__link">Игра</a></li>
-          <li><a href="#contact" class="nav__link">Контакты</a></li>
+          <li><a href="#hero" class="nav__link">Тепличные тайны</a></li>
+          <li><a href="#about" class="nav__link">Безупречное качество</a></li>
+          <li><a href="#gallery" class="nav__link">Шмели в помощь</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Меню">
           <span class="hamburger__line"></span>
@@ -196,23 +190,32 @@
     <main>
       <!-- Hero -->
       <section class="hero section section--full" id="hero">
-        <div
-          class="hero__bg"
-          style="
-            --bg: url(&quot;https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920&quot;);
-          "
-        ></div>
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920"
+        >
+          <source src="videos/hero.mp4" type="video/mp4" />
+        </video>
         <div class="hero__overlay"></div>
         <div class="hero__content">
-          <p class="hero__label animate-text">Теплицы под Минском</p>
-          <h1 class="hero__title animate-text-delay">
-            Сбор клубники<br />в теплицах
-          </h1>
+          <p class="hero__label animate-text">ЖИВОЙ РЕПОРТАЖ</p>
+          <div class="hero__title-wrap">
+            <h1 class="hero__title animate-text-delay">ТОТ САМЫЙ ВКУС</h1>
+            <img
+              src="images/pngH1.png"
+              alt=""
+              class="hero__title-img animate-text-delay"
+            />
+          </div>
           <p class="hero__subtitle animate-text-delay-2">
-            Свежая ягода круглый год
+            Как в Беларуси выращивают клубнику зимой
           </p>
           <a href="#about" class="hero__cta btn btn--primary animate-fade-in"
-            >Узнать больше</a
+            >СМОТРЕТЬ РЕПОРТАЖ</a
           >
         </div>
       </section>
@@ -221,39 +224,30 @@
       <section class="about section section--parallax" id="about">
         <div
           class="section__bg"
-          style="
-            --bg: url(&quot;https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=1920&quot;);
-          "
+          style="--bg: url(&quot;/images/bg_about.jpg&quot;)"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <h2 class="section__title reveal">О теплицах под Минском</h2>
-          <div class="about__grid">
-            <div class="about__card reveal">
-              <span class="about__number">01</span>
-              <h3>Экологичность</h3>
-              <p>
-                Теплицы работают на современном оборудовании с минимальным
-                воздействием на природу. Удобрения и защита — только разрешённые
-                средства.
-              </p>
-            </div>
-            <div class="about__card reveal">
-              <span class="about__number">02</span>
-              <h3>Круглый год</h3>
-              <p>
-                Благодаря климату внутри теплиц сбор клубники возможен с ранней
-                весны до поздней осени, а при досветке — и зимой.
-              </p>
-            </div>
-            <div class="about__card reveal">
-              <span class="about__number">03</span>
-              <h3>Качество</h3>
-              <p>
-                Ягода собирается вручную в стадии полной спелости и сразу
-                отправляется на сортировку и упаковку.
-              </p>
-            </div>
+          <div class="about__intro reveal">
+            <p class="about__text">
+              <span data-textify
+                >Пока соскучившиеся по солнцу и теплу белорусы живут в режиме
+                ожидания июня, в тепличном хозяйстве ОАО «ДОРОРС» лето
+                прописалось на постоянной основе. Благодаря современной
+                технологии досветки клубнику на предприятии выращивают
+                практически круглый год. Поэтому каждый день в теплицах
+                начинается с зелени и аромата ягод, а клубничный конвейер здесь
+                работает без оглядки на погоду. Способна ли тепличная ягода
+                соревноваться во вкусе с той самой, из бабушкиного огорода,
+                зачем в современных теплицах нужен шмелиный десант и полагается
+                ли растениям зимняя спячка, узнала наш корреспондент </span
+              ><a
+                href="https://www.sb.by/author/1503430-galina-zhukova-20220718/"
+                class="about__author-link"
+                >Галина Жукова.</a
+              >
+            </p>
           </div>
         </div>
       </section>
