@@ -173,7 +173,21 @@
     <!-- Navigation -->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="#hero" class="nav__logo">Клубника.by</a>
+        <a
+          href="https://www.sb.by/"
+          class="nav__logo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="images/logo.png"
+            alt="SB.BY"
+            class="nav__logo-img"
+            width="40"
+            height="40"
+          />
+          <span class="nav__logo-text">SB.BY</span>
+        </a>
         <ul class="nav__menu" id="navMenu">
           <li><a href="#hero" class="nav__link">Тепличные тайны</a></li>
           <li><a href="#about" class="nav__link">Безупречное качество</a></li>
@@ -190,8 +204,10 @@
     <main>
       <!-- Hero -->
       <section class="hero section section--full" id="hero">
+        <div class="hero__bg-fallback" aria-hidden="true"></div>
         <video
           class="hero__video"
+          id="heroVideo"
           autoplay
           muted
           loop
@@ -204,16 +220,15 @@
         <div class="hero__content">
           <p class="hero__label animate-text">ЖИВОЙ РЕПОРТАЖ</p>
           <div class="hero__title-wrap">
-            <h1 class="hero__title animate-text-delay">ТОТ САМЫЙ ВКУС</h1>
+            <h1 class="hero__title animate-text-delay">
+              Как в Беларуси выращивают клубнику?
+            </h1>
             <img
               src="images/pngH1.png"
               alt=""
               class="hero__title-img animate-text-delay"
             />
           </div>
-          <p class="hero__subtitle animate-text-delay-2">
-            Как в Беларуси выращивают клубнику зимой
-          </p>
           <a href="#about" class="hero__cta btn btn--primary animate-fade-in"
             >СМОТРЕТЬ РЕПОРТАЖ</a
           >
@@ -344,6 +359,57 @@
           </button>
           <div class="lightbox__content">
             <img src="" alt="" id="lightboxImg" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Тепличные тайны -->
+      <section class="secrets-section section section--parallax" id="secrets">
+        <div
+          class="section__bg"
+          style="
+            --bg: url(&quot;https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?w=1920&quot;);
+          "
+        ></div>
+        <div class="section__overlay"></div>
+        <div class="container section__inner">
+          <div class="secrets">
+            <div class="secrets__text reveal">
+              <h2 class="secrets__title">Тепличные тайны</h2>
+              <p class="secrets__lead">
+                У входа нас встречает заместитель директора ОСП «Тепличное
+                хозяйство» ОАО «ДОРОРС» Екатерина Шавенько. Она только что
+                вернулась из теплиц, куда едет первым делом сразу после
+                планерки.
+              </p>
+              <p class="secrets__lead">
+                — Растениям не скажешь: подождите, у меня сегодня выходной, —
+                улыбается она. — Поэтому вместо рабочего кабинета у меня вот это
+                большое хозяйство. Обязательно проверяю, как растет земляника
+                садовая – так правильнее называть клубнику. В этом году мы
+                проводим своего рода эксперимент: выращиваем ее на минеральной
+                вате. Так что контроль за состоянием растений надо усилить.
+              </p>
+            </div>
+            <div class="secrets__photos reveal">
+              <div class="secrets__photo-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=600"
+                  alt="Теплица с клубникой"
+                  class="secrets__photo"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=600"
+                  alt="Клубника в теплице"
+                  class="secrets__photo"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?w=600"
+                  alt="Сбор урожая"
+                  class="secrets__photo"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -503,30 +569,92 @@
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <h2 class="section__title reveal">Как мы собираем клубнику</h2>
-          <div class="process__steps">
-            <div class="process__step reveal">
-              <div class="process__icon">🌱</div>
-              <h3>Выращивание</h3>
-              <p>
-                Рассада высаживается в субстрат, полив и микроклимат
-                контролируются автоматикой.
+          <div class="process__content">
+            <div class="process__intro reveal">
+              <p class="process__text" data-textify>
+                Из этого ягодного царства не хочется уходить. Пожалуй, здесь
+                даже можно переждать оставшуюся зиму, пока солнце не прогреет
+                землю и не разбудит первых бабочек. Глаз радует идеальная,
+                словно сошедшая с картинки, клубника, а от густого земляничного
+                аромата слегка кружится голова.
               </p>
             </div>
-            <div class="process__step reveal">
-              <div class="process__icon">🌸</div>
-              <h3>Цветение</h3>
-              <p>
-                Опыление и поддержание оптимальной температуры обеспечивают
-                равномерное созревание.
+            <blockquote class="process__quote reveal">
+              <p class="process__quote-text">
+                — Атмосфера тут особая, — соглашается с нами Екатерина
+                Александровна. — Правда, урожай сегодня уже собрали – делаем это
+                с самого утра. Клубнику выращиваем давно, около 15 лет. Все
+                культуры, которые растут в защищенном грунте, особенно ягодные,
+                достаточно сложные. Решили начать с земляники садовой, она
+                востребована у потребителя, особенно в холодное время года.
+                Наработали технологию, с тех пор ее не меняем. Первую ягоду
+                собираем уже в декабре, в прошлом году получили около 40 тонн.
               </p>
+            </blockquote>
+            <div class="process__facts">
+              <div class="process__fact reveal" data-fact>
+                <span class="process__fact-value"
+                  ><span class="process__fact-number">15</span>
+                  <span class="process__fact-unit">лет</span></span
+                >
+                <span class="process__fact-label">выращиваем клубнику</span>
+              </div>
+              <div class="process__fact reveal" data-fact>
+                <span class="process__fact-value process__fact-value--word"
+                  >декабрь</span
+                >
+                <span class="process__fact-label">первая ягода</span>
+              </div>
+              <div class="process__fact reveal" data-fact>
+                <span class="process__fact-value"
+                  ><span class="process__fact-number">40</span>
+                  <span class="process__fact-unit">тонн</span></span
+                >
+                <span class="process__fact-label">урожай в прошлом году</span>
+              </div>
             </div>
-            <div class="process__step reveal">
-              <div class="process__icon">🍓</div>
-              <h3>Сбор</h3>
-              <p>
-                Ягоду снимают вручную в пик спелости и сразу укладывают в
-                контейнеры.
+          </div>
+        </div>
+      </section>
+
+      <!-- Производственный цикл -->
+      <section class="cycle-section section section--parallax" id="cycle">
+        <div
+          class="section__bg"
+          style="
+            --bg: url(&quot;https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=1920&quot;);
+          "
+        ></div>
+        <div class="section__overlay"></div>
+        <div class="container section__inner">
+          <div class="cycle">
+            <div class="cycle__photo reveal">
+              <img
+                src="https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?w=800"
+                alt="Теплица с рассадой клубники"
+                loading="lazy"
+              />
+            </div>
+            <div class="cycle__text reveal">
+              <p class="cycle__lead">
+                Производственный цикл в тепличном хозяйстве начинается в августе
+                с высадки рассады. Уже к октябрю кусты входят в фазу
+                плодоношения, а небольшой спад активности в январе объясняется
+                естественными физиологическими процессами.
               </p>
+              <blockquote class="cycle__quote">
+                <p class="cycle__quote-text">
+                  — Раньше технология возделывания традиционных сортов требовала
+                  обязательного периода покоя, — объясняет специалист. — После
+                  первой волны урожая мы были вынуждены искусственно
+                  «укладывать» землянику спать: отключали систему досветки и
+                  снижали температуру в теплицах, чтобы растения накопили
+                  необходимое количество баллов. В такой спячке плантация
+                  проводила больше месяца. Сегодня же мы перешли на современные
+                  ремонтантные сорта, которые не нуждаются в длительном отдыхе и
+                  готовы плодоносить практически непрерывно.
+                </p>
+              </blockquote>
             </div>
           </div>
         </div>
@@ -612,6 +740,42 @@
         </div>
       </section>
 
+      <!-- Безупречное качество -->
+      <section class="quality-section section section--parallax" id="quality">
+        <div
+          class="section__bg"
+          style="
+            --bg: url(&quot;https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920&quot;);
+          "
+        ></div>
+        <div class="section__overlay"></div>
+        <div class="container section__inner">
+          <h2 class="section__title reveal">Безупречное качество</h2>
+          <div class="quality__content reveal">
+            <p class="quality__lead">
+              Пока я восхищаюсь размером и формой ягод, заместитель директора
+              обращает мое внимание на важный момент – субстрат, на котором
+              ягоды выросли. В этом году на предприятии решили применить в
+              качестве него минеральную вату и стали единственными в республике,
+              кто решился на такой эксперимент.
+            </p>
+            <blockquote class="quality__quote">
+              <p class="quality__quote-text">
+                — Пока он проходит хорошо. На данный момент относительно
+                прошлого года собрали больше урожая, — констатирует собеседница.
+                — Этот субстрат обеспечивает максимальную управляемость
+                процессом. В отличие от торфяных смесей, где сложно
+                контролировать уровень влажности, накопление солей и баланс
+                элементов, инертная по своей природе вата позволяет точно
+                настраивать питание растений. Она обладает отличными дренажными
+                свойствами, а при необходимости субстрат можно легко промыть,
+                оперативно скорректировав показатели среды.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       <!-- Interview -->
       <section
         class="interview-section section section--parallax"
@@ -625,48 +789,43 @@
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
-          <h2 class="section__title reveal">Интервью</h2>
-          <p class="section__lead reveal">
-            Голос из теплицы — о сборе клубники под Минском
-          </p>
           <article class="interview reveal">
             <div class="interview__person">
               <div class="interview__photo-wrap">
                 <img
                   class="interview__photo"
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400"
-                  alt="Андрей Ковалёв"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600"
+                  alt="Екатерина Александровна"
                   loading="lazy"
                   decoding="async"
-                  width="200"
-                  height="200"
+                  width="280"
+                  height="320"
                 />
               </div>
               <div class="interview__meta">
-                <cite class="interview__name">Андрей Ковалёв</cite>
+                <cite class="interview__name">Екатерина Александровна</cite>
                 <p class="interview__role">
-                  агроном, тепличный комплекс «Ягодный край»
+                  заместитель директора ОСП «Тепличное хозяйство» ОАО «ДОРОРС»
                 </p>
               </div>
             </div>
             <div class="interview__text">
               <p data-textify>
-                В наших теплицах клубника идёт с марта по ноябрь. Секрет не
-                только в климате — важно выбрать сорта, которые отдают урожай
-                волнами и не болеют. Мы делаем упор на санитарию и капельный
-                полив, чтобы ягода была чистой и сладкой.
+                Обращаю внимание на аромат, исходящий от ягод, – не ожидала
+                услышать его зимой. Екатерина Александровна улыбается, говорит,
+                что их клубника хоть и зимняя, но ничем не отличается от той,
+                которую выращивают летом на грядках.
               </p>
               <p data-textify>
-                Сбор только вручную. Каждую ягоду снимаем в стадии полной
-                спелости — тогда и аромат, и вкус на высоте. Работа в теплице
-                для многих стала привычным делом: утром заходишь — зелень, запах
-                земли и клубники. Это вдохновляет.
-              </p>
-              <p data-textify>
-                Планируем расширять площади и пробовать новые сорта. Хочется,
-                чтобы жители Минска и области могли круглый год есть местную
-                клубнику, а не только привозную. Считаю, у теплиц под Минском
-                большое будущее.
+                — Мы делаем ставку исключительно на биологическую защиту,
+                поэтому наша ягода - продукт максимально экологичный, —
+                объясняет специалист. — Эту клубнику можно смело пробовать прямо
+                с куста. Безопасность подтверждаем регулярными исследованиями в
+                аттестованной лаборатории. Согласно действующим регламентам
+                строго контролируем уровень нитратов, содержание тяжелых
+                металлов и пестицидную нагрузку. Да, биологические методы защиты
+                обходятся недешево, но безупречное качество и доверие покупателя
+                того стоят.
               </p>
             </div>
           </article>

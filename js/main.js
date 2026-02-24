@@ -38,6 +38,14 @@
   window.addEventListener('scroll', onScrollHeader, { passive: true });
   onScrollHeader();
 
+  // ----- Hero video fallback (when videos/hero.mp4 is missing) -----
+  var heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    heroVideo.addEventListener('error', function () {
+      heroVideo.style.display = 'none';
+    });
+  }
+
   // ----- Hamburger & Nav -----
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
