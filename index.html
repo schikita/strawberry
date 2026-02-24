@@ -191,7 +191,7 @@
         <ul class="nav__menu" id="navMenu">
           <li><a href="#hero" class="nav__link">Тепличные тайны</a></li>
           <li><a href="#about" class="nav__link">Безупречное качество</a></li>
-          <li><a href="#gallery" class="nav__link">Шмели в помощь</a></li>
+          <li><a href="#bumblebees" class="nav__link">Шмели в помощь</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Меню">
           <span class="hamburger__line"></span>
@@ -832,6 +832,118 @@
         </div>
       </section>
 
+      <!-- Шмели в помощь -->
+      <section
+        class="bumblebees-section section section--parallax"
+        id="bumblebees"
+      >
+        <div
+          class="section__bg"
+          style="
+            --bg: url(&quot;https://images.unsplash.com/photo-1528821128474-27f963b062bf?w=1920&quot;);
+          "
+        ></div>
+        <div class="section__overlay"></div>
+        <div class="container section__inner">
+          <h2 class="section__title reveal">Шмели в помощь</h2>
+          <div class="bumblebees__content">
+            <div class="bumblebees__text reveal">
+              <p class="bumblebees__lead">
+                Если хорошенько прислушаться, за мерным гулом систем досветки
+                можно расслышать едва уловимое жужжание. Это трудятся шмели. В
+                теплицах к этим пушистым помощникам относятся с особой
+                симпатией, их не боятся, а, напротив, всячески оберегают. Миссия
+                у насекомых ответственная: именно от качества опыления зависит
+                не только объем будущего урожая, но и безупречная форма каждой
+                ягоды.
+              </p>
+              <blockquote class="bumblebees__quote">
+                <p class="bumblebees__quote-text">
+                  – Бояться их не стоит, они совершенно миролюбивы, — улыбается
+                  овощевод Наталья Дорошенко, за годы работы она привыкла делить
+                  пространство с пушистыми помощниками, почти не замечая их
+                  присутствия.
+                </p>
+              </blockquote>
+            </div>
+            <div class="bumblebees__video reveal">
+              <div class="video-wrapper">
+                <div class="custom-player" id="bumblebeesPlayer">
+                  <video
+                    id="bumblebeesVideo"
+                    poster="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=1280"
+                    preload="none"
+                    playsinline
+                    controls
+                  >
+                    <source src="videos/2.mp4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid: Шмели — опылители -->
+      <section
+        class="pollinators-section section section--parallax"
+        id="pollinators"
+      >
+        <div
+          class="section__bg"
+          style="
+            --bg: url(&quot;https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?w=1920&quot;);
+          "
+        ></div>
+        <div class="section__overlay"></div>
+        <div class="container section__inner">
+          <div class="pollinators__grid">
+            <div class="pollinators__cell pollinators__cell--photo reveal">
+              <img
+                src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800"
+                alt="Шмель в теплице"
+                loading="lazy"
+              />
+            </div>
+            <div class="pollinators__cell pollinators__cell--text reveal">
+              <p class="pollinators__text">
+                Екатерина Шавенько добавляет: лучшей альтернативы шмелям в
+                качестве опылителей в закрытом грунте на сегодняшний день не
+                существует. В тепличных условиях они значительно превосходят
+                пчел по эффективности, сохраняя высокую активность даже при
+                низкой освещенности и в пасмурную погоду. Шмелиные семьи
+                поставляются из России, а для поддержания стабильной
+                интенсивности опыления их состав планово обновляется каждые две
+                недели.
+              </p>
+            </div>
+            <div class="pollinators__cell pollinators__cell--text reveal">
+              <blockquote class="pollinators__quote">
+                <p class="pollinators__quote-text">
+                  — В период активного цветения «крылатых сотрудников» требуется
+                  больше, — отмечает заместитель руководителя. — В это время мы
+                  ставим по 12 домиков на 0,5 гектара. Как только волна цветения
+                  идет на спад, уменьшаем и число насекомых. Мы тщательно следим
+                  за этим балансом: при недостаточном опылении ягода либо не
+                  завязывается вовсе, либо вырастает невзрачной и искривленной.
+                  Шмели - гаранты того, что клубника будет крупной и правильной
+                  формы.
+                </p>
+              </blockquote>
+            </div>
+            <div class="pollinators__cell pollinators__cell--photo reveal">
+              <img
+                src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=800"
+                alt="Клубника в теплице"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Game: Strawberry Picking -->
       <section class="game-section section section--parallax" id="game">
         <div
@@ -908,33 +1020,100 @@
           </div>
         </div>
       </section>
-
-      <!-- Contact -->
-      <section class="contact section section--parallax" id="contact">
-        <div
-          class="section__bg"
-          style="
-            --bg: url(&quot;https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=1920&quot;);
-          "
-        ></div>
-        <div class="section__overlay"></div>
-        <div class="container section__inner">
-          <h2 class="section__title reveal">Контакты</h2>
-          <p class="section__lead reveal">
-            Теплицы под Минском — свежая клубника для вас
-          </p>
-          <div class="contact__info reveal">
-            <p>Минская область, агрогородки в радиусе 30 км от Минска</p>
-            <p>Сезон сбора: март — ноябрь</p>
-            <p><a href="mailto:info@klubnika.by">info@klubnika.by</a></p>
-          </div>
-        </div>
-      </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>© Клубника.by — сбор клубники в теплицах под Минском</p>
+    <section
+      class="projects-section"
+      id="projects"
+      aria-label="Живой репортаж — материалы"
+    >
+      <div class="projects-section__bg" aria-hidden="true"></div>
+      <div class="projects-section__overlay"></div>
+      <div class="projects-inner container">
+        <div class="section-header">
+          <h2 class="section-title">Живой репортаж — материалы</h2>
+        </div>
+
+        <div
+          class="projects-viewport"
+          data-autoplay="true"
+          data-interval="5000"
+        >
+          <div class="projects-stage">
+            <a
+              href="https://www.sb.by/sp/stork/"
+              class="project-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/projects/flag.jpg"
+                loading="lazy"
+                alt="От беды к свободе"
+              />
+              <div class="project-info">
+                <h3>От беды к свободе</h3>
+              </div>
+            </a>
+
+            <a
+              href="https://www.sb.by/sp/million-raznykh-roz/"
+              class="project-card is-active"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/projects/hero.jpg"
+                loading="lazy"
+                alt="Горнолыжный центр Силичи зимой"
+              />
+              <div class="project-info">
+                <h3>Миллион разных роз</h3>
+              </div>
+            </a>
+
+            <a
+              href="https://www.sb.by/sp/chto-proiskhodit-s-avtorynkom-belarusi/"
+              class="project-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/projects/bg-car.jpg"
+                loading="lazy"
+                alt="Авторынок Беларуси"
+              />
+              <div class="project-info">
+                <h3>Что происходит с авторынком Беларуси?</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="projects-footer">
+          <a
+            href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/"
+            class="btn-all-projects"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Смотреть все материалы
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer footer" role="contentinfo">
+      <div class="footer-content container">
+        <div class="footer-credits">
+          <p>Автор: <strong>Галина ЖУКОВА</strong></p>
+          <p>Фото: <strong>Егор ЕРМАЛИЦКИЙ</strong></p>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-copy">© Издательский дом «Беларусь сегодня»</div>
       </div>
     </footer>
 
