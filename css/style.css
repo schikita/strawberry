@@ -1427,9 +1427,7 @@ img {
   margin: 0;
   padding: 24px 28px;
   background: rgba(255, 255, 255, 0.06);
-  border-left: 4px solid var(--color-accent);
   border-radius: 0 var(--radius) var(--radius) 0;
-  font-style: italic;
 }
 
 .bumblebees__quote-text {
@@ -1506,9 +1504,7 @@ img {
   margin: 0;
   padding: 24px 28px;
   background: rgba(255, 255, 255, 0.06);
-  border-left: 4px solid var(--color-accent);
   border-radius: 0 var(--radius) var(--radius) 0;
-  font-style: italic;
 }
 
 .pollinators__quote-text {
