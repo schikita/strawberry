@@ -72,27 +72,9 @@
     });
   });
 
-  // ----- Smooth scroll for anchors (плавное торможение) -----
+  // ----- Anchor scroll -----
   (function () {
     var headerH = 70;
-    function easeInOutCubic(t) {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-    function smoothScrollTo(el) {
-      var target = el.getBoundingClientRect().top + window.pageYOffset - headerH;
-      var start = window.pageYOffset;
-      var distance = target - start;
-      var duration = Math.min(1200, Math.abs(distance) * 0.8);
-      var startTime = null;
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        var progress = Math.min((timestamp - startTime) / duration, 1);
-        var ease = easeInOutCubic(progress);
-        window.scrollTo(0, start + distance * ease);
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
         var id = this.getAttribute('href');
@@ -103,7 +85,8 @@
           if (window.innerWidth <= 900 && document.getElementById('navMenu').classList.contains('open')) {
             document.getElementById('hamburger').click();
           }
-          smoothScrollTo(el);
+          var target = el.getBoundingClientRect().top + window.pageYOffset - headerH;
+          window.scrollTo(0, target);
         }
       });
     });
@@ -210,7 +193,7 @@
   }, { passive: true });
 
   backToTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   });
 
   // ----- Gallery lightbox -----

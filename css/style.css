@@ -28,7 +28,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
@@ -777,7 +776,7 @@ video {
 
 .about__author-link {
   display: inline-block;
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-size: 1.15em;
   font-weight: 600;
   color: var(--color-accent-light);
