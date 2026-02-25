@@ -1351,8 +1351,14 @@ img {
 }
 
 /* ===== Quality (Безупречное качество) ===== */
+.quality-section {
+  align-items: flex-end;
+  justify-content: center;
+}
+
 .quality-section .section__inner {
   max-width: 900px;
+  margin-bottom: 5%;
 }
 
 .quality__content {
@@ -1371,9 +1377,7 @@ img {
   margin: 0;
   padding: 24px 28px;
   background: rgba(255, 255, 255, 0.06);
-  border-left: 4px solid var(--color-accent);
   border-radius: 0 var(--radius) var(--radius) 0;
-  font-style: italic;
 }
 
 .quality__quote-text {
@@ -1385,6 +1389,14 @@ img {
 }
 
 @media (max-width: 768px) {
+  .quality-section {
+    align-items: center;
+  }
+
+  .quality-section .section__inner {
+    margin-bottom: 0;
+  }
+
   .quality__quote {
     padding: 20px 24px;
   }
@@ -2156,7 +2168,7 @@ img {
   grid-template-columns: 280px 1fr;
   gap: 48px;
   align-items: start;
-  background: rgba(13, 26, 13, 0.75);
+  background: rgba(13, 26, 13, 0.45);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
