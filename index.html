@@ -2,7 +2,10 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Как в Беларуси выращивают клубнику? | Живой репортаж</title>
     <meta
       name="description"
@@ -226,16 +229,15 @@
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
-          <h2 class="section__title">О теплицах под Минском</h2>
           <div class="about__intro">
             <p class="about__text">
               Пока соскучившиеся по солнцу и теплу белорусы живут в режиме
               ожидания июня, в тепличном хозяйстве ОАО «ДОРОРС» лето прописалось
               на постоянной основе. Благодаря современной технологии досветки
-              клубнику на предприятии выращивают практически круглый год. Поэтому
-              каждый день в теплицах начинается с зелени и аромата ягод, а
-              клубничный конвейер здесь работает без оглядки на погоду. Способна
-              ли тепличная ягода соревноваться во вкусе с той самой, из
+              клубнику на предприятии выращивают практически круглый год.
+              Поэтому каждый день в теплицах начинается с зелени и аромата ягод,
+              а клубничный конвейер здесь работает без оглядки на погоду.
+              Способна ли тепличная ягода соревноваться во вкусе с той самой, из
               бабушкиного огорода, зачем в современных теплицах нужен шмелиный
               десант и полагается ли растениям зимняя спячка, узнала наш
               корреспондент
@@ -842,14 +844,48 @@
                 <div class="custom-player" id="bumblebeesPlayer">
                   <video
                     id="bumblebeesVideo"
-                    poster="./images/bg_smel.jpg"
+                    poster="images/bg_smel.jpg"
                     preload="none"
                     playsinline
-                    controls
                   >
-                    <source src="./videos/smel.mp4" type="video/mp4" />
+                    <source src="videos/smel.mp4" type="video/mp4" />
                     Ваш браузер не поддерживает видео.
                   </video>
+                  <div class="custom-player__overlay">
+                    <button class="custom-player__play" aria-label="Смотреть">
+                      <span class="custom-player__play-icon"></span>
+                    </button>
+                    <p class="custom-player__caption">Нажмите для просмотра</p>
+                  </div>
+                  <div class="custom-player__controls">
+                    <button
+                      class="custom-player__btn custom-player__btn--play"
+                      aria-label="Старт/Пауза"
+                    ></button>
+                    <div class="custom-player__progress">
+                      <div class="custom-player__progress-bar"></div>
+                      <div class="custom-player__progress-loaded"></div>
+                    </div>
+                    <span class="custom-player__time">0:00</span>
+                    <span class="custom-player__time">/</span>
+                    <span class="custom-player__time">0:00</span>
+                    <button
+                      class="custom-player__btn custom-player__btn--volume"
+                      aria-label="Громкость"
+                    ></button>
+                    <input
+                      type="range"
+                      class="custom-player__volume"
+                      min="0"
+                      max="1"
+                      step="0.1"
+                      value="1"
+                    />
+                    <button
+                      class="custom-player__btn custom-player__btn--fullscreen"
+                      aria-label="Полный экран"
+                    ></button>
+                  </div>
                 </div>
               </div>
             </div>
