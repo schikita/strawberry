@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Клубника в теплицах под Минском — Сбор урожая | Живой репортаж
-    </title>
+    <title>Как в Беларуси выращивают клубнику? | Живой репортаж</title>
     <meta
       name="description"
       content="Живой репортаж о сборе клубники в теплицах под Минском. Свежая ягода круглый год, экологичное выращивание, фотогалерея и видео из теплиц."
@@ -15,7 +13,10 @@
       content="клубника, теплицы, Минск, сбор урожая, живой репортаж, ягоды, Беларусь"
     />
     <meta name="theme-color" content="#0d1a0d" />
-    <link rel="canonical" href="https://yoursite.com/" />
+    <link
+      rel="canonical"
+      href="https://www.sb.by/sp/kak-v-belarusi-vyrashhivayut-klubniku"
+    />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -27,15 +28,15 @@
       property="og:description"
       content="Сбор клубники в теплицах под Минском. Свежая ягода круглый год, фотогалерея, видео и интервью."
     />
-    <meta
-      property="og:image"
-      content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1200"
-    />
+    <meta property="og:image" content="./images/galery/01.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://yoursite.com/" />
+    <meta
+      property="og:url"
+      content="https://www.sb.by/sp/kak-v-belarusi-vyrashhivayut-klubniku"
+    />
     <meta property="og:locale" content="ru_BY" />
-    <meta property="og:site_name" content="Клубника.by" />
+    <meta property="og:site_name" content="sb.by" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -47,10 +48,7 @@
       name="twitter:description"
       content="Сбор клубники в теплицах под Минском. Свежая ягода круглый год."
     />
-    <meta
-      name="twitter:image"
-      content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1200"
-    />
+    <meta name="twitter:image" content="./images/galery/01.jpg" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
@@ -58,24 +56,9 @@
 
     <!-- Preload critical -->
     <link rel="preload" href="css/style.css" as="style" />
-    <link
-      rel="preload"
-      href="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920"
-      as="image"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript
-      ><link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    /></noscript>
+    <link rel="preload" href="css/fonts.css" as="style" />
+    <link rel="preload" href="./images/galery/01.jpg" as="image" />
+    <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -933,15 +916,14 @@
       <section class="game-section section section--parallax" id="game">
         <div
           class="section__bg"
-          style="
-            --bg: url(&quot;https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920&quot;);
-          "
+          style="--bg: url(&quot;../images/bg_game.jpg&quot;)"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <h2 class="section__title reveal">Собери клубнику</h2>
           <p class="section__lead reveal">
             За 30 секунд собери как можно больше ягод — кликай по клубнике!
+            Избегай сорняков.
           </p>
           <div class="game-wrap reveal">
             <div class="game" id="strawberryGame">
@@ -951,7 +933,7 @@
                   <h3>Сбор урожая</h3>
                   <p>
                     Кликай по клубнике и набирай очки.<br />Золотая ягода —
-                    бонус x3!
+                    бонус x3!<br />Не трогай сорняки 🌿 — минус очки!
                   </p>
                   <button
                     type="button"
@@ -985,7 +967,7 @@
                 <div class="game__particles" id="gameParticles"></div>
                 <div class="game__float-text" id="gameFloatText"></div>
               </div>
-              <div class="game__end" id="gameEnd">
+              <div class="game__end hidden" id="gameEnd">
                 <div class="game__end-inner">
                   <span class="game__end-berry">🍓</span>
                   <h3>Время вышло!</h3>

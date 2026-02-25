@@ -481,7 +481,7 @@ img {
 .hero__bg-fallback {
   position: absolute;
   inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920");
+  background-image: url("../images/galery/01.jpg");
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -2071,6 +2071,21 @@ img {
   }
 }
 
+@keyframes berryFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+.game__berries .berry.weed {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.game__berries .berry.weed:hover {
+  filter: drop-shadow(0 4px 12px rgba(139, 90, 43, 0.6));
+}
+
 /* Particles */
 .game__particles {
   position: absolute;
@@ -2120,6 +2135,11 @@ img {
   color: #ffd700;
   font-size: 1.4rem;
   text-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
+}
+
+.game__float-text .float-point.negative {
+  color: #e85a6f;
+  text-shadow: 0 0 10px rgba(232, 90, 111, 0.9);
 }
 
 @keyframes floatUp {

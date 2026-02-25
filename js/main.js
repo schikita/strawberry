@@ -418,10 +418,15 @@
   var gameFinalScore = document.getElementById('gameFinalScore');
 
   var GAME_DURATION = 30;
-  var SPAWN_INTERVAL_MIN = 600;
-  var SPAWN_INTERVAL_MAX = 1200;
-  var MAX_BERRIES = 10;
+  var SPAWN_INTERVAL_MIN = 280;
+  var SPAWN_INTERVAL_MAX = 550;
+  var MAX_BERRIES = 15;
+  var MAX_WEEDS = 6;
+  var BERRY_LIFETIME = 4500;
+  var WEED_LIFETIME = 4000;
   var GOLDEN_CHANCE = 0.12;
+  var WEED_CHANCE = 0.22;
+  var WEED_PENALTY = 2;
   var COMBO_TIMEOUT = 800;
 
   var gameState = {
@@ -433,7 +438,9 @@
     spawnId: null,
     combo: 0,
     comboTimeoutId: null,
-    berryCount: 0
+    berryCount: 0,
+    weedCount: 0,
+    hasPlayed: false
   };
 
   function getArenaRect() {
@@ -458,6 +465,7 @@
     berry.innerHTML = '🍓';
     berry.dataset.points = points;
     berry.dataset.golden = isGolden ? '1' : '0';
+    berry.dataset.type = 'berry';
     berry.style.left = x + 'px';
     berry.style.top = y + 'px';
     berry.style.marginLeft = '-28px';
@@ -466,11 +474,65 @@
     berry.addEventListener('click', function (e) {
       e.stopPropagation();
       if (!gameState.running || berry.classList.contains('picked')) return;
+      if (berry.dataset.disappearId) clearTimeout(parseInt(berry.dataset.disappearId, 10));
       pickBerry(berry, x, y, points, isGolden);
     });
 
     gameBerries.appendChild(berry);
     gameState.berryCount++;
+
+    var disappearId = setTimeout(function () {
+      if (berry.parentNode && !berry.classList.contains('picked')) {
+        berry.classList.add('picked');
+        berry.dataset.disappearId = '';
+        gameState.berryCount--;
+        berry.style.animation = 'berryFadeOut 0.4s ease forwards';
+        setTimeout(function () {
+          if (berry.parentNode) berry.parentNode.removeChild(berry);
+        }, 400);
+      }
+    }, BERRY_LIFETIME);
+    berry.dataset.disappearId = String(disappearId);
+  }
+
+  function spawnWeed() {
+    if (!gameState.running || gameState.weedCount >= MAX_WEEDS) return;
+    var rect = getArenaRect();
+    var padding = 50;
+    var x = padding + Math.random() * (rect.width - padding * 2);
+    var y = padding + Math.random() * (rect.height - padding * 2);
+
+    var weed = document.createElement('div');
+    weed.className = 'berry weed';
+    weed.innerHTML = '🌿';
+    weed.dataset.type = 'weed';
+    weed.style.left = x + 'px';
+    weed.style.top = y + 'px';
+    weed.style.marginLeft = '-28px';
+    weed.style.marginTop = '-28px';
+
+    weed.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (!gameState.running || weed.classList.contains('picked')) return;
+      if (weed.dataset.disappearId) clearTimeout(parseInt(weed.dataset.disappearId, 10));
+      pickWeed(weed, x, y);
+    });
+
+    gameBerries.appendChild(weed);
+    gameState.weedCount++;
+
+    var disappearId = setTimeout(function () {
+      if (weed.parentNode && !weed.classList.contains('picked')) {
+        weed.classList.add('picked');
+        weed.dataset.disappearId = '';
+        gameState.weedCount--;
+        weed.style.animation = 'berryFadeOut 0.4s ease forwards';
+        setTimeout(function () {
+          if (weed.parentNode) weed.parentNode.removeChild(weed);
+        }, 400);
+      }
+    }, WEED_LIFETIME);
+    weed.dataset.disappearId = String(disappearId);
   }
 
   function pickBerry(berry, x, y, points, isGolden) {
@@ -504,10 +566,31 @@
     }, 350);
   }
 
-  function showFloatingPoint(x, y, points, golden) {
+  function pickWeed(weed, x, y) {
+    weed.classList.add('picked');
+    gameState.weedCount--;
+
+    gameState.combo = 0;
+    if (gameState.comboTimeoutId) clearTimeout(gameState.comboTimeoutId);
+    gameComboEl.textContent = '';
+
+    var penalty = WEED_PENALTY;
+    gameState.score = Math.max(0, gameState.score - penalty);
+
+    gameScoreEl.textContent = gameState.score;
+    gameTimerFill.style.transform = 'scaleX(' + (gameState.timeLeft / GAME_DURATION) + ')';
+
+    showFloatingPoint(x, y, -penalty, false, true);
+    createParticles(x, y, false, true);
+    setTimeout(function () {
+      if (weed.parentNode) weed.parentNode.removeChild(weed);
+    }, 350);
+  }
+
+  function showFloatingPoint(x, y, points, golden, negative) {
     var el = document.createElement('span');
-    el.className = 'float-point' + (golden ? ' golden' : '');
-    el.textContent = '+' + points;
+    el.className = 'float-point' + (golden ? ' golden' : '') + (negative ? ' negative' : '');
+    el.textContent = (negative ? '' : '+') + points;
     el.style.left = x + 'px';
     el.style.top = y + 'px';
     el.style.transform = 'translate(-50%, -50%)';
@@ -517,8 +600,8 @@
     }, 800);
   }
 
-  function createParticles(x, y, golden) {
-    var colors = golden ? ['#ffd700', '#ffec8b', '#ffa500'] : ['#c41e3a', '#e85a6f', '#ff8a9a'];
+  function createParticles(x, y, golden, isWeed) {
+    var colors = isWeed ? ['#5a7d4a', '#6b8e5a', '#4a6b3a'] : (golden ? ['#ffd700', '#ffec8b', '#ffa500'] : ['#c41e3a', '#e85a6f', '#ff8a9a']);
     for (var i = 0; i < 8; i++) {
       var p = document.createElement('div');
       p.className = 'particle';
@@ -553,6 +636,7 @@
     gameState.timeLeft = GAME_DURATION;
     gameState.combo = 0;
     gameState.berryCount = 0;
+    gameState.weedCount = 0;
     gameComboEl.textContent = '';
     gameScoreEl.textContent = '0';
     gameBasketCount.textContent = '0';
@@ -569,7 +653,11 @@
     gameState.timerId = setInterval(gameTick, 1000);
     function scheduleSpawn() {
       if (!gameState.running) return;
-      spawnBerry();
+      if (Math.random() < WEED_CHANCE) {
+        spawnWeed();
+      } else {
+        spawnBerry();
+      }
       var delay = SPAWN_INTERVAL_MIN + Math.random() * (SPAWN_INTERVAL_MAX - SPAWN_INTERVAL_MIN);
       gameState.spawnId = setTimeout(scheduleSpawn, delay);
     }
@@ -578,9 +666,14 @@
 
   function endGame() {
     gameState.running = false;
+    gameState.hasPlayed = true;
     if (gameState.timerId) clearInterval(gameState.timerId);
     if (gameState.spawnId) clearTimeout(gameState.spawnId);
     if (gameState.comboTimeoutId) clearTimeout(gameState.comboTimeoutId);
+    var items = gameBerries.querySelectorAll('.berry');
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].dataset.disappearId) clearTimeout(parseInt(items[i].dataset.disappearId, 10));
+    }
     gameTimerFill.style.transform = 'scaleX(0)';
     gameFinalScore.textContent = gameState.berriesPicked;
     gameEnd.classList.remove('hidden');
