@@ -46,6 +46,14 @@
     });
   }
 
+  // ----- Cycle video fallback (when videos/bg_cycles.mp4 is missing) -----
+  var cycleVideo = document.getElementById('cycleVideo');
+  if (cycleVideo) {
+    cycleVideo.addEventListener('error', function () {
+      cycleVideo.style.display = 'none';
+    });
+  }
+
   // ----- Hamburger & Nav -----
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
@@ -64,18 +72,42 @@
     });
   });
 
-  // ----- Smooth scroll for anchors -----
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      const id = this.getAttribute('href');
-      if (id === '#') return;
-      const el = document.querySelector(id);
-      if (el) {
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // ----- Smooth scroll for anchors (плавное торможение) -----
+  (function () {
+    var headerH = 70;
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    function smoothScrollTo(el) {
+      var target = el.getBoundingClientRect().top + window.pageYOffset - headerH;
+      var start = window.pageYOffset;
+      var distance = target - start;
+      var duration = Math.min(1200, Math.abs(distance) * 0.8);
+      var startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var ease = easeInOutCubic(progress);
+        window.scrollTo(0, start + distance * ease);
+        if (progress < 1) requestAnimationFrame(step);
       }
+      requestAnimationFrame(step);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var id = this.getAttribute('href');
+        if (id === '#') return;
+        var el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          if (window.innerWidth <= 900 && document.getElementById('navMenu').classList.contains('open')) {
+            document.getElementById('hamburger').click();
+          }
+          smoothScrollTo(el);
+        }
+      });
     });
-  });
+  })();
 
   // ----- Reveal on scroll (fade in) -----
   const revealEls = document.querySelectorAll('.reveal');
@@ -103,12 +135,18 @@
       var text = el.textContent;
       el.textContent = '';
       var words = text.split(/(\s+)/);
-      words.forEach(function (word, i) {
-        var span = document.createElement('span');
-        span.className = 'text-reveal-word';
-        span.style.transitionDelay = (i * stagger) + 's';
-        span.textContent = word;
-        el.appendChild(span);
+      var delayIndex = 0;
+      words.forEach(function (word) {
+        if (/^\s+$/.test(word)) {
+          el.appendChild(document.createTextNode(word));
+        } else {
+          var span = document.createElement('span');
+          span.className = 'text-reveal-word';
+          span.style.transitionDelay = (delayIndex * stagger) + 's';
+          span.textContent = word;
+          el.appendChild(span);
+          delayIndex++;
+        }
       });
       el.classList.add('text-reveal');
     }
