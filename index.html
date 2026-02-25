@@ -60,7 +60,6 @@
     <!-- Preload critical -->
     <link rel="preload" href="css/style.css" as="style" />
     <link rel="preload" href="css/fonts.css" as="style" />
-    <link rel="preload" href="./images/galery/01.jpg" as="image" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -223,10 +222,7 @@
 
       <!-- About -->
       <section class="about section section--parallax" id="about">
-        <div
-          class="section__bg"
-          style="--bg: url(&quot;../images/bg_about.jpg&quot;)"
-        ></div>
+        <div class="section__bg" data-bg="images/bg_about.jpg"></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <div class="about__intro">
@@ -252,10 +248,7 @@
 
       <!-- Gallery -->
       <section class="gallery-section section section--full" id="gallery">
-        <div
-          class="section__bg"
-          style="--bg: url(&quot;../images/galery/bg_galery.jpg&quot;)"
-        ></div>
+        <div class="section__bg" data-bg="images/galery/bg_galery.jpg"></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <div class="gallery">
@@ -344,10 +337,7 @@
 
       <!-- Тепличные тайны -->
       <section class="secrets-section section section--parallax" id="secrets">
-        <div
-          class="section__bg"
-          style="--bg: url(&quot;../images/secret/bg_secret.jpg&quot;)"
-        ></div>
+        <div class="section__bg" data-bg="images/secret/bg_secret.jpg"></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <div class="secrets">
@@ -374,16 +364,22 @@
                   src="images/secret/01.jpg"
                   alt="Теплица с клубникой"
                   class="secrets__photo"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <img
                   src="images/secret/02.jpg"
                   alt="Клубника в теплице"
                   class="secrets__photo"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <img
                   src="images/secret/03.jpg"
                   alt="Сбор урожая"
                   class="secrets__photo"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -393,10 +389,7 @@
 
       <!-- Strip: scrolling photo tape -->
       <section class="strip-section section section--parallax" id="strip">
-        <div
-          class="section__bg"
-          style="--bg: url(&quot;../images/line/bg_line.jpg&quot;)"
-        ></div>
+        <div class="section__bg" data-bg="images/line/bg_line.jpg"></div>
         <div class="section__overlay"></div>
         <div class="container section__inner"></div>
         <div class="strip reveal">
@@ -561,7 +554,7 @@
       <section class="process section section--parallax" id="process">
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/bg_sbor.jpg&quot;)"
+          data-bg="images/bg_sbor.jpg"
         ></div>
         <div class="container section__inner">
           <div class="process__panel">
@@ -604,10 +597,9 @@
           muted
           loop
           playsinline
-          poster="images/cycle.jpg"
-        >
-          <source src="./videos/bg_cycle.mp4" type="video/mp4" />
-        </video>
+          data-poster="images/cycle.jpg"
+          data-src="./videos/bg_cycle.mp4"
+        ></video>
         <div class="section__overlay"></div>
         <div class="container section__inner">
           <div class="cycle">
@@ -647,7 +639,7 @@
       <section class="video-section section section--parallax" id="video">
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/bg_video.jpg&quot;)"
+          data-bg="images/bg_video.jpg"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
@@ -655,11 +647,11 @@
             <div class="custom-player" id="customPlayer">
               <video
                 id="mainVideo"
-                poster="images/pre_video.jpg"
+                data-poster="images/pre_video.jpg"
                 preload="none"
                 playsinline
+                data-src="videos/full-video.mp4"
               >
-                <source src="videos/full-video.mp4" type="video/mp4" />
                 Ваш браузер не поддерживает видео.
               </video>
               <div class="custom-player__overlay" id="playerOverlay">
@@ -720,7 +712,7 @@
       <section class="quality-section section section--parallax" id="quality">
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/kachestvo.jpg&quot;)"
+          data-bg="images/kachestvo.jpg"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
@@ -757,7 +749,7 @@
       >
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/bg_ceo.jpg&quot;)"
+          data-bg="images/bg_ceo.jpg"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
@@ -811,7 +803,7 @@
       >
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/bg_pomosh.jpg&quot;)"
+          data-bg="images/bg_pomosh.jpg"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
@@ -841,11 +833,11 @@
                 <div class="custom-player" id="bumblebeesPlayer">
                   <video
                     id="bumblebeesVideo"
-                    poster="images/bg_smel.jpg"
+                    data-poster="images/bg_smel.jpg"
                     preload="none"
                     playsinline
+                    data-src="videos/smel.mp4"
                   >
-                    <source src="videos/smel.mp4" type="video/mp4" />
                     Ваш браузер не поддерживает видео.
                   </video>
                   <div class="custom-player__overlay">
@@ -897,7 +889,7 @@
       >
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/alternate.jpg&quot;)"
+          data-bg="images/alternate.jpg"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
@@ -950,7 +942,7 @@
       <section class="game-section section section--parallax" id="game">
         <div
           class="section__bg"
-          style="--bg: url(&quot;../images/bg_game.jpg&quot;)"
+          data-bg="images/bg_game.jpg"
         ></div>
         <div class="section__overlay"></div>
         <div class="container section__inner">
@@ -1028,7 +1020,7 @@
       id="projects"
       aria-label="Живой репортаж — материалы"
     >
-      <div class="projects-section__bg" aria-hidden="true"></div>
+      <div class="projects-section__bg section__bg" data-bg="images/last-bg.jpg" aria-hidden="true"></div>
       <div class="projects-section__overlay"></div>
       <div class="projects-inner container">
         <div class="section-header">

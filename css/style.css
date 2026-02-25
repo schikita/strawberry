@@ -290,7 +290,6 @@ video {
 .section__bg {
   position: absolute;
   inset: 0;
-  background-image: var(--bg);
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
@@ -2620,7 +2619,6 @@ video {
 .projects-section__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../images/last-bg.jpg");
   background-size: cover;
   background-position: center;
   z-index: 0;
