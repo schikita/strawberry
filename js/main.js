@@ -152,24 +152,6 @@
     });
   })();
 
-  // ----- Parallax for section backgrounds -----
-  const parallaxSections = document.querySelectorAll('.section--parallax .section__bg');
-  function parallax() {
-    const scrolled = window.pageYOffset;
-    parallaxSections.forEach(function (bg) {
-      const section = bg.closest('.section');
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const center = rect.top + rect.height / 2;
-      const windowCenter = window.innerHeight / 2;
-      const diff = center - windowCenter;
-      const rate = Math.min(1, Math.max(-1, diff / window.innerHeight));
-      bg.style.transform = 'translateY(' + rate * 30 + 'px)';
-    });
-  }
-  window.addEventListener('scroll', parallax, { passive: true });
-  window.addEventListener('resize', parallax);
-
   // ----- Back to top -----
   const backToTop = document.getElementById('backToTop');
   const backToTopObserver = new IntersectionObserver(
